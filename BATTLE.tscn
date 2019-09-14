@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://BATTLE.gd" type="Script" id=1]
 [ext_resource path="res://Images/Dungeon.png" type="Texture" id=2]
 [ext_resource path="res://Images/Mobile RPG Mockup.png" type="Texture" id=3]
-[ext_resource path="res://Enemy.gd" type="Script" id=4]
-[ext_resource path="res://Images/Rat.png" type="Texture" id=5]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
 
 [node name="BATTLE" type="Node"]
 script = ExtResource( 1 )
@@ -14,25 +13,13 @@ position = Vector2( 45.4273, 80.5944 )
 texture = ExtResource( 2 )
 
 [node name="Mobile RPG Mockup" type="Sprite" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.305882 )
 position = Vector2( 45, 81 )
 texture = ExtResource( 3 )
 
-[node name="Enemy" type="Node2D" parent="."]
-position = Vector2( 46, 33 )
-script = ExtResource( 4 )
-
-[node name="Rat" type="Sprite" parent="Enemy"]
-position = Vector2( 0, 1 )
-texture = ExtResource( 5 )
-
-[node name="HPLabel" type="Label" parent="Enemy"]
-margin_left = -19.0
-margin_top = -27.0
-margin_right = 21.0
-margin_bottom = -13.0
-text = "25hp"
-align = 1
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 46.2774, 33.8322 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
